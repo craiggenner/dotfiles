@@ -1,0 +1,23 @@
+[user]
+        name = Craig Genner
+        email = craig.genner@piksel.com
+[color]
+        branch = auto
+        diff = auto
+        interactive = auto
+        status = auto
+[alias]
+        co = checkout
+        ci = commit
+        st = status
+        dc = diff --cached
+        lg = log --decorate --stat --graph --pretty=format:'%C(yellow)%h%Creset (%ar - %Cred%an%Creset), %s%n'
+        lp = log -p
+        logp = log -p
+[core]
+        whitespace = cr-at-eol
+        excludesfile = ~/.gitignore
+[http]
+        sslVerify = false
+[pull]
+        rebase = true

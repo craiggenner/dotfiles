@@ -1,0 +1,8 @@
+Host *
+        GSSAPIAuthentication no
+#       ControlMaster auto
+#       ControlPath ~/.ssh/connections/%r_%h_%p
+        ServerAliveInterval 5
+
+Host sully
+        KexAlgorithms=diffie-hellman-group14-sha1
