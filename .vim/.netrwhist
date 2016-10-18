@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/cgenner/source/git/piksel/puppet/rails'
+let g:netrw_dirhist_2='/home/cgenner/source/git/piksel/product/infra/sequoia-mflowesb'
+let g:netrw_dirhist_3='/home/cgenner/source/git/piksel/product/infra'
+let g:netrw_dirhist_4='/home/cgenner/source/git/piksel/product/infra/sequoia-mflowesb'
+let g:netrw_dirhist_5='/home/cgenner/source/git/piksel/product/infra/whitebeam/hieradata/yaml/environment'
+let g:netrw_dirhist_6='/home/cgenner/source/git/piksel/product/infra/sequoia-airside'
+let g:netrw_dirhist_7='/home/cgenner/source/git/piksel/product/infra/mesos/dist/mesos/manifests/profiles'
+let g:netrw_dirhist_8='/home/cgenner/source/git/piksel/product/infra/mesos/dist/mesos/manifests/roles'
+let g:netrw_dirhist_9='/home/cgenner/source/git/piksel/puppet/sequoia/manifests/apache'

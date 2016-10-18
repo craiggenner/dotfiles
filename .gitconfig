@@ -1,6 +1,6 @@
 [user]
         name = Craig Genner
-        email = craig.genner@piksel.com
+        email = craig@tuxx.org.uk
 [color]
         branch = auto
         diff = auto
@@ -14,10 +14,15 @@
         lg = log --decorate --stat --graph --pretty=format:'%C(yellow)%h%Creset (%ar - %Cred%an%Creset), %s%n'
         lp = log -p
         logp = log -p
+        br = branch
+        bl = branch -l
 [core]
         whitespace = cr-at-eol
         excludesfile = ~/.gitignore
+        autocrlf = input
 [http]
         sslVerify = false
 [pull]
         rebase = true
+[push]
+        default = simple

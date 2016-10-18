@@ -3,6 +3,24 @@ Host *
 #       ControlMaster auto
 #       ControlPath ~/.ssh/connections/%r_%h_%p
         ServerAliveInterval 5
+	ConnectTimeout 120
+	VerifyHostKeyDNS yes
 
 Host sully
         KexAlgorithms=diffie-hellman-group14-sha1
+
+Host github.com
+	ForwardAgent no
+	ForwardX11 no
+	ForwardX11Trusted no
+	RequestTTY no
+
+Host ec2*
+	IdentityFile ~/.ssh/keys/aws.id_rsa
+	StrictHostKeyChecking no
+	IdentitiesOnly yes
+	User ubuntu
+	UserKnownHostsFile /dev/null
+
+Host *+*
+	ProxyCommand ssh $(echo %h | sed 's/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s/:/ -p /') nc $(echo %h | sed 's/^.*+//;/:/!s/$/ %p/;s/:/ /')
