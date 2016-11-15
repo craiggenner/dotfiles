@@ -20,9 +20,15 @@
         whitespace = cr-at-eol
         excludesfile = ~/.gitignore
         autocrlf = input
+[core]
+        whitespace = cr-at-eol
+        excludesfile = ~/.gitignore
+        autocrlf = input
 [http]
         sslVerify = false
 [pull]
         rebase = true
 [push]
         default = simple
+[status]
+        showUntrackedFiles = all
