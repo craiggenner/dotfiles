@@ -31,4 +31,4 @@
 [push]
         default = simple
 [status]
-        showUntrackedFiles = all
+	showUntrackedFiles = all
