@@ -3,6 +3,12 @@
 :set background=dark
 :set showmatch
 
+setlocal autoindent
+filetype indent on
+
+au BufRead,BufNewFile *.py              set filetype=python
+
+
 syntax on
 
 map <F8> :n<CR>

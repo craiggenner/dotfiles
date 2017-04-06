@@ -106,3 +106,10 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
   eval `ssh-agent -s`
 #  ssh-add
 fi
+
+export PIP_REQUIRE_VIRTUALENV=true
+if [ -x /usr/local/bin/virtualenvwrapper.sh ]; then
+  source /usr/local/bin/virtualenvwrapper.sh
+fi
+
+eval "$(rbenv init -)"
