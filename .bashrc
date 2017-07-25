@@ -112,4 +112,8 @@ if [ -x /usr/local/bin/virtualenvwrapper.sh ]; then
   source /usr/local/bin/virtualenvwrapper.sh
 fi
 
-eval "$(rbenv init -)"
+if [ -x /usr/bin/rbenv ]; then
+  eval "$(rbenv init -)"
+fi
+
+export PATH="$HOME/.tfenv/bin:$PATH"
