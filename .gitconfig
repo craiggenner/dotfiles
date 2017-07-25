@@ -24,6 +24,7 @@
         whitespace = cr-at-eol
         excludesfile = ~/.gitignore
         autocrlf = input
+        editor = vi
 [http]
         sslVerify = false
 [pull]
