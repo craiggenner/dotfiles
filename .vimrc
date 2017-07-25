@@ -2,6 +2,7 @@
 :set modeline
 :set background=dark
 :set showmatch
+:set mouse=
 
 setlocal autoindent
 filetype indent on
