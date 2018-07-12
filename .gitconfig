@@ -16,10 +16,8 @@
         logp = log -p
         br = branch
         bl = branch -l
-[core]
-        whitespace = cr-at-eol
-        excludesfile = ~/.gitignore
-        autocrlf = input
+[help]
+	autocorrect = 20
 [core]
         whitespace = cr-at-eol
         excludesfile = ~/.gitignore
