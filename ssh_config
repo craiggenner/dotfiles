@@ -9,7 +9,7 @@ Host *
 Host sully
         KexAlgorithms=diffie-hellman-group14-sha1
 
-Host github.com
+Host github.com gitlab.*
 	ForwardAgent no
 	ForwardX11 no
 	ForwardX11Trusted no
