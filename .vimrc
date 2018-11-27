@@ -7,6 +7,10 @@
 setlocal autoindent
 filetype indent on
 
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+
 au BufRead,BufNewFile *.py              set filetype=python
 
 
