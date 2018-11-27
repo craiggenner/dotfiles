@@ -14,11 +14,18 @@ export HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 
+# Use one command per line
+shopt -s cmdhist
+
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=10000
 HISTFILESIZE=20000
-# ignore ls, bg, cd, cd -, and job control
-export HISTIGNORE="ls:bg:cd:cd -:fg:fg 1:fg 2:%:%-"
+# ignore ls, bg, cd, cd -, cd.., job control and history
+# ignore common git commands
+export HISTIGNORE="ls:bg:cd:cd -:cd ..:fg:fg 1:fg 2:%:%-:history:git push:git st:git diff:git bl:git lp:git stash"
+
+# Store Bash History Immediately
+export PROMPT_COMMAND='history -a'
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -117,3 +124,16 @@ if [ -x /usr/bin/rbenv ]; then
 fi
 
 export PATH="$HOME/.tfenv/bin:$PATH"
+
+#if test -f $HOME/.gpg-agent-info && \
+#  kill -0 `cut -d: -f 2 $HOME/.gpg-agent-info` 2>/dev/null; then
+#  GPG_AGENT_INFO=`cat $HOME/.gpg-agent-info | cut -c 16-`
+#else
+#  # No, gpg-agent not available; start gpg-agent
+#  eval `gpg-agent --daemon --no-grab --write-env-file $HOME/.gpg-agent-info`
+#fi
+#export GPG_TTY=`tty`
+#export GPG_AGENT_INFO
+
+export GOROOT=$HOME/.go
+export PATH=$PATH:$HOME/.go/bin
