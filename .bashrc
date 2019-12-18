@@ -137,3 +137,20 @@ export PATH="$HOME/.tfenv/bin:$PATH"
 
 export GOROOT=$HOME/.go
 export PATH=$PATH:$HOME/.go/bin
+
+complete -C '/home/craig/.local/bin/aws_completer' aws
+
+_ssh()
+{
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    opts=$(grep '^Host' ~/.ssh/config ~/.ssh/config.d/* 2>/dev/null | grep -v '[?*]' | cut -d ' ' -f 2-)
+
+    COMPREPLY=( $(compgen -W "$opts" -- ${cur}) )
+    return 0
+}
+complete -F _ssh ssh
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
