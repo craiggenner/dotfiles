@@ -15,11 +15,14 @@ Host github.com gitlab.*
 	ForwardX11Trusted no
 	RequestTTY no
 
+Host vs-ssh.visualstudio.com
+        User bjss-goalgroup
+
 Host ec2*
 	IdentityFile ~/.ssh/keys/aws.id_rsa
 	StrictHostKeyChecking no
 	IdentitiesOnly yes
-	User ubuntu
+	User ec2-user
 	UserKnownHostsFile /dev/null
 
 Host *+*

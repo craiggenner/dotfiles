@@ -124,6 +124,7 @@ if [ -x /usr/bin/rbenv ]; then
 fi
 
 export PATH="$HOME/.tfenv/bin:$PATH"
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 #if test -f $HOME/.gpg-agent-info && \
 #  kill -0 `cut -d: -f 2 $HOME/.gpg-agent-info` 2>/dev/null; then
@@ -137,6 +138,7 @@ export PATH="$HOME/.tfenv/bin:$PATH"
 
 export GOROOT=$HOME/.go
 export PATH=$PATH:$HOME/.go/bin
+export PATH=$PATH:$HOME/.local/bin
 
 complete -C '/home/craig/.local/bin/aws_completer' aws
 
@@ -152,5 +154,3 @@ _ssh()
     return 0
 }
 complete -F _ssh ssh
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
