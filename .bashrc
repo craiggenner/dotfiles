@@ -118,6 +118,9 @@ export PIP_REQUIRE_VIRTUALENV=true
 if [ -x /usr/local/bin/virtualenvwrapper.sh ]; then
   source /usr/local/bin/virtualenvwrapper.sh
 fi
+if [ -x /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
+  source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+fi
 
 if [ -x /usr/bin/rbenv ]; then
   eval "$(rbenv init -)"
@@ -139,6 +142,12 @@ export PATH="$HOME/.tfenv/bin:$PATH"
 export GOROOT=$HOME/.go
 export PATH=$PATH:$HOME/.go/bin
 export PATH=$PATH:$HOME/.local/bin
+export TF_PLUGIN_CACHE_DIR=$HOME/.terraform.d/plugin-cache
+
+for i in ~/.gem/ruby/*
+do
+  export PATH=$PATH:$HOME/.gem/ruby/$(basename $i)/bin
+done
 
 complete -C '/home/craig/.local/bin/aws_completer' aws
 

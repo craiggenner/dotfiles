@@ -1,6 +1,7 @@
 [user]
         name = Craig Genner
-        email = craig.genner@gamesparks.com
+        email = craig.genner@bjss.com
+	signingkey = 11577110685AF48D
 [color]
         branch = auto
         diff = auto
@@ -13,6 +14,7 @@
         dc = diff --cached
         lg = log --decorate --stat --graph --pretty=format:'%C(yellow)%h%Creset (%ar - %Cred%an%Creset), %s%n'
         lp = log -p
+        lps = log -p --show-signature
         logp = log -p
         br = branch
         bl = branch -l
