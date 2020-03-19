@@ -17,6 +17,8 @@ Host github.com gitlab.*
 
 Host vs-ssh.visualstudio.com
         User bjss-goalgroup
+        IdentitiesOnly yes
+	IdentityFile ~/.ssh/id_rsa
 
 Host ec2*
 	IdentityFile ~/.ssh/keys/aws.id_rsa
