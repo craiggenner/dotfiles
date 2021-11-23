@@ -18,6 +18,7 @@
         logp = log -p
         br = branch
         bl = branch -l
+        mm = merge main
 [help]
 	autocorrect = 20
 [core]
@@ -41,3 +42,5 @@
   template = ~/.gitmessage
 [diff]
   noprefix = true
+[credential]
+	helper = store

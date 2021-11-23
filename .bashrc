@@ -149,7 +149,7 @@ do
   export PATH=$PATH:$HOME/.gem/ruby/$(basename $i)/bin
 done
 
-complete -C '/home/craig/.local/bin/aws_completer' aws
+complete -C '/usr/local/bin/aws_completer' aws
 
 _ssh()
 {

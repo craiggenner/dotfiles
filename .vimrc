@@ -16,5 +16,5 @@ au BufRead,BufNewFile *.py              set filetype=python
 
 syntax on
 
-map <F8> :n<CR>
-map <F7> :N<CR>
+map <F6> :n<CR>
+map <F5> :N<CR>
