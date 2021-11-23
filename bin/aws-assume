@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+# set -euo pipefail
+
+while getopts ":hr:" opt; do
+	case $opt in
+		r)
+			role=$OPTARG
+			;;
+		h)
+			echo "Usage: -r [ROLE ARN]"
+			exit 1
+			;;
+		\? )
+			echo "Invalid option: $OPTARG" 1>&2
+			exit 1
+			;;
+		: )
+			echo "Invalid option: -$OPTARG requires an argument" 1>&2
+			exit 1
+			;;
+	esac
+done
+
+if [ "${role}" = "" ]; then
+	echo "Error: Missing role"
+	exit 1
+fi
+
+# NOTE: The keys should not be exported as AWS_ACCESS_KEY_ID
+# or AWS_SECRET_ACCESS_KEY_ID. This will not work. They
+# should be exported as other names which can be used below. This prevents
+# them from incorrectly being picked up from libraries or commands.
+temporary_credentials="$(aws \
+  sts \
+  assume-role \
+  --duration-seconds 3600 \
+  --role-session-name 'aws-assume' \
+  --role-arn ${role}
+)"
+
+unset AWS_PROFILE
+
+if [ "${temporary_credentials}" != "" ]; then
+	echo "export AWS_ACCESS_KEY_ID=$(echo "${temporary_credentials}" | jq -re '.Credentials.AccessKeyId')"
+	echo "export AWS_SECRET_ACCESS_KEY=$(echo "${temporary_credentials}" | jq -re '.Credentials.SecretAccessKey')"
+	echo "export AWS_SESSION_TOKEN=$(echo "${temporary_credentials}" | jq -re '.Credentials.SessionToken')"
+        #echo "export AWS_PROFILE=mfa"
+	# Replace [mfa] section in .aws/credentials
+	#sed '/\[mfa\]/,/aws_session_token/d' -i ~/.aws/credentials
+	#echo "[mfa]" >> ~/.aws/credentials
+	#echo "aws_access_key_id = $(echo "${temporary_credentials}" | jq -re '.Credentials.AccessKeyId')" >> ~/.aws/credentials
+	#echo "aws_secret_access_key = $(echo "${temporary_credentials}" | jq -re '.Credentials.SecretAccessKey')" >> ~/.aws/credentials
+	#echo "aws_session_token = $(echo "${temporary_credentials}" | jq -re '.Credentials.SessionToken')" >> ~/.aws/credentials
+else
+	echo -e "\nOpps, no idea what happened there"
+fi
