@@ -6,19 +6,11 @@ Host *
 	ConnectTimeout 120
 	VerifyHostKeyDNS yes
 
-Host sully
-        KexAlgorithms=diffie-hellman-group14-sha1
-
 Host github.com gitlab.*
 	ForwardAgent no
 	ForwardX11 no
 	ForwardX11Trusted no
 	RequestTTY no
-
-Host vs-ssh.visualstudio.com
-        User bjss-goalgroup
-        IdentitiesOnly yes
-	IdentityFile ~/.ssh/id_rsa
 
 Host ec2*
 	IdentityFile ~/.ssh/keys/aws.id_rsa
@@ -26,6 +18,10 @@ Host ec2*
 	IdentitiesOnly yes
 	User ec2-user
 	UserKnownHostsFile /dev/null
+
+host i-* mi-*
+	ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
+
 
 Host *+*
 	ProxyCommand ssh $(echo %h | sed 's/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s/:/ -p /') nc $(echo %h | sed 's/^.*+//;/:/!s/$/ %p/;s/:/ /')

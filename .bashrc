@@ -128,6 +128,7 @@ fi
 
 export PATH="$HOME/.tfenv/bin:$PATH"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f /usr/share/doc/fzf/examples/key-bindings.bash ] && source /usr/share/doc/fzf/examples/key-bindings.bash
 
 #if test -f $HOME/.gpg-agent-info && \
 #  kill -0 `cut -d: -f 2 $HOME/.gpg-agent-info` 2>/dev/null; then
