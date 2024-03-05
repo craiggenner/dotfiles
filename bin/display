@@ -1,0 +1,5 @@
+#!/bin/bash
+
+/Users/craig.genner/.homebrew/bin/displayplacer "id:2E4F67A5-8C71-0AD3-A39F-1F43937BD89C res:1920x1080 hz:60 color_depth:8 scaling:off origin:(0,0) degree:0" "id:7E77685C-FD4A-224E-0580-1DBFE992B712 res:1920x1080 hz:60 color_depth:8 scaling:off origin:(1920,0) degree:0"
+
+#/Users/craig.genner/.homebrew/bin/displayplacer "id:0000220E-0000-342E-0101-010100000000 res:1920x1080 hz:60 color_depth:4 scaling:off origin:(0,0) degree:0" "id:0000220E-0000-342E-0101-015F00000000 res:1920x1080 hz:60 color_depth:4 scaling:off origin:(1920,0) degree:0"

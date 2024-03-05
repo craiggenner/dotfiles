@@ -1,7 +1,7 @@
 [user]
         name = Craig Genner
-        email = craig.genner@bjss.com
-	signingkey = 11577110685AF48D
+        email = craig.genner@engineering.digital.dwp.gov.uk
+	signingkey = EFBF21E18ADF4A6B
 [color]
         branch = auto
         diff = auto
