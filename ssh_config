@@ -1,4 +1,5 @@
 Host *
+	SecurityKeyProvider ~/.homebrew/Cellar/libsk-libfido2/9.5p1_2/libexec/libsk-libfido2.dylib
         GSSAPIAuthentication no
 #       ControlMaster auto
 #       ControlPath ~/.ssh/connections/%r_%h_%p
