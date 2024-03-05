@@ -8,6 +8,7 @@
         interactive = auto
         status = auto
 [alias]
+        com = !git checkout main && git pull
         co = checkout
         ci = commit
         st = status
@@ -32,14 +33,14 @@
         rebase = true
 [push]
         default = simple
+	autoSetupRemote = true
 [status]
 	showUntrackedFiles = all
 [commit]
 	gpgsign = true
+	#template = ~/.gitmessage
 [remote "origin"]
   prune = true
-[commit]
-  template = ~/.gitmessage
 [diff]
   noprefix = true
 [credential]
