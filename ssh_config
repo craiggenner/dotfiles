@@ -1,11 +1,21 @@
 Host *
-	SecurityKeyProvider ~/.homebrew/Cellar/libsk-libfido2/9.5p1_2/libexec/libsk-libfido2.dylib
         GSSAPIAuthentication no
 #       ControlMaster auto
 #       ControlPath ~/.ssh/connections/%r_%h_%p
         ServerAliveInterval 5
 	ConnectTimeout 120
 	VerifyHostKeyDNS yes
+        SecurityKeyProvider /usr/local/lib/libsk-libfido2.dylib
+
+Host smitty
+	User craig
+
+Host hass
+	User hass
+
+Host tuxx.org.uk
+	User craig
+	Port 1233
 
 Host github.com gitlab.*
 	ForwardAgent no
@@ -23,6 +33,10 @@ Host ec2*
 host i-* mi-*
 	ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
 
-
 Host *+*
 	ProxyCommand ssh $(echo %h | sed 's/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s/:/ -p /') nc $(echo %h | sed 's/^.*+//;/:/!s/$/ %p/;s/:/ /')
+
+Host 127.0.0.1
+	StrictHostKeyChecking no
+	IdentitiesOnly yes
+	UserKnownHostsFile /dev/null
