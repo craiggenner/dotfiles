@@ -9,6 +9,7 @@
         status = auto
 [alias]
         com = !git checkout main && git pull
+        cod = !git checkout develop && git pull
         co = checkout
         ci = commit
         st = status
@@ -45,3 +46,5 @@
   noprefix = true
 [credential]
 	helper = store
+[init]
+	defaultBranch = main

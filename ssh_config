@@ -1,14 +1,21 @@
+Include /Users/craig.genner/.colima/ssh_config
+
+#Include /Users/craig.genner/.colima/ssh_config
+
 Host *
         GSSAPIAuthentication no
 #       ControlMaster auto
 #       ControlPath ~/.ssh/connections/%r_%h_%p
-        ServerAliveInterval 5
+        ServerAliveInterval 10
 	ConnectTimeout 120
 	VerifyHostKeyDNS yes
-        SecurityKeyProvider /usr/local/lib/libsk-libfido2.dylib
 
-Host smitty
+Host smitty 192.168.1.2
 	User craig
+        Port 53
+#        SecurityKeyProvider /Users/craig.genner/.homebrew/Cellar/libfido2/1.16.0_1dd/lib/libfido2.dylib
+	PasswordAuthentication no
+        WarnWeakCrypto no-pq-kex
 
 Host hass
 	User hass
@@ -18,6 +25,14 @@ Host tuxx.org.uk
 	Port 1233
 
 Host github.com gitlab.*
+	ForwardAgent no
+	ForwardX11 no
+	ForwardX11Trusted no
+	RequestTTY no
+
+Host github-priv
+        HostName github.com
+        IdentityFile ~/.ssh/id_ed25519_priv
 	ForwardAgent no
 	ForwardX11 no
 	ForwardX11Trusted no
